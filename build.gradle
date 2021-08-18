@@ -1,0 +1,86 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.excelsecu'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lombokVersion = "1.18.10"
+    mapstructVersion = "1.4.1.Final"
+}
+
+dependencies {
+    // web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    // sql
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.2'
+    implementation 'com.baomidou:mybatis-plus:3.4.2'
+    implementation 'mysql:mysql-connector-java:8.0.22'
+    implementation 'org.apache.commons:commons-pool2:2.9.0'
+
+    // generator
+    implementation 'com.baomidou:mybatis-plus-generator:3.4.1'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+
+    // druid
+    implementation 'com.alibaba:druid-spring-boot-starter:1.1.18'
+
+    // shiro
+    implementation 'org.apache.shiro:shiro-spring:1.7.1'
+    implementation 'com.auth0:java-jwt:3.14.0'
+
+    // validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // json
+    implementation 'com.alibaba:fastjson:1.2.31'
+
+    // mapstruct
+    implementation "org.mapstruct:mapstruct:$mapstructVersion"
+    annotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:$mapstructVersion"
+
+    // lombok
+    implementation "org.projectlombok:lombok:$lombokVersion"
+    testImplementation "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // swagger
+    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    // other
+    implementation 'org.springframework:spring-context-support'
+    implementation 'com.google.code.findbugs:annotations:3.0.1'
+}
+
+test {
+    useJUnitPlatform()
+}
