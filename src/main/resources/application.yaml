@@ -5,3 +5,10 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true

@@ -6,7 +6,7 @@ import com.excelsecu.cmsystem.common.enums.ErrorType;
 import com.excelsecu.cmsystem.common.enums.State;
 import com.excelsecu.cmsystem.common.result.Result;
 import com.excelsecu.cmsystem.common.utils.Constants;
-import com.excelsecu.cmsystem.common.utils.PasswordHelper;
+import com.excelsecu.cmsystem.component.PasswordHelper;
 import com.excelsecu.cmsystem.dto.AccountDto;
 import com.excelsecu.cmsystem.dto.UserTokenDto;
 import com.excelsecu.cmsystem.entity.Account;
@@ -221,7 +221,7 @@ public class AccountController {
         Role role = roleService.getById(userRole.getRoleId());
         return role.getName();
     }
-    
+
     private Account accountFromToken(String token){
         if (null == token || token.isEmpty()) {
             return null;
