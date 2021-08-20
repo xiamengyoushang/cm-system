@@ -27,6 +27,9 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // mail
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
