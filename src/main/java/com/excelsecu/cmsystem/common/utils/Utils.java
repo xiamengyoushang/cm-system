@@ -29,4 +29,13 @@ public class Utils {
         return key;
     }
 
+    // 判断邮箱格式
+    public static boolean isMail(String mail){
+        if(mail.matches("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

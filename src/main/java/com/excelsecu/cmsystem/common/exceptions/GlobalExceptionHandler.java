@@ -1,5 +1,6 @@
 package com.excelsecu.cmsystem.common.exceptions;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.excelsecu.cmsystem.common.enums.ErrorType;
 import com.excelsecu.cmsystem.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -8,13 +9,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
 
 @Slf4j
 @RestControllerAdvice
-public class ExceptionHandler {
+public class GlobalExceptionHandler {
 
     /**
      * 校验错误拦截处理
@@ -22,7 +24,7 @@ public class ExceptionHandler {
      * @param exception 错误信息集合
      * @return 错误信息
      */
-    @org.springframework.web.bind.annotation.ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result<?> validationBodyException(MethodArgumentNotValidException exception) {
         BindingResult result = exception.getBindingResult();
         String message = "";
@@ -50,10 +52,22 @@ public class ExceptionHandler {
      * @param exception 错误
      * @return 错误信息
      */
-    @org.springframework.web.bind.annotation.ExceptionHandler(HttpMessageConversionException.class)
+    @ExceptionHandler(HttpMessageConversionException.class)
     public Result<?> parameterTypeException(HttpMessageConversionException exception) {
-        log.error(exception.getCause().getLocalizedMessage());
+        exception.printStackTrace();
         return Result.failure(ErrorType.PARAM_TYPE);
+    }
+
+    /**
+     * 参数错误
+     *
+     * @param exception 错误
+     * @return 错误信息
+     */
+    @ExceptionHandler(ArgsException.class)
+    public Result<?> argsException(ArgsException exception) {
+        exception.printStackTrace();
+        return Result.failure(ErrorType.PARAM_INVALID);
     }
 
 }
