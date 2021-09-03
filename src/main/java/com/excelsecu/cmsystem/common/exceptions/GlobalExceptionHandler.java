@@ -1,6 +1,5 @@
 package com.excelsecu.cmsystem.common.exceptions;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.excelsecu.cmsystem.common.enums.ErrorType;
 import com.excelsecu.cmsystem.common.result.Result;
 import lombok.extern.slf4j.Slf4j;

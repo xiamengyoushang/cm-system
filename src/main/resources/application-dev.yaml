@@ -51,5 +51,5 @@ mybatis-plus:
     map-underscore-to-camel-case: true  # 启用驼峰命名
 
 password:
-  algorithmName: md5  # 主要yaml格式需要预留空格
+  algorithmName: md5  # 注意yaml格式需要预留空格
   hashIterations: 2
